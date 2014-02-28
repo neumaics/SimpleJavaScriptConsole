@@ -8,32 +8,5 @@
 
 <BorderPane prefHeight="768" 
 		    prefWidth="1024" xmlns:fx="http://javafx.com/fxml" 
-		    fx:controller="com.neumaics.simpleconsole.controllers.SimpleConsoleController" 
-		    fx:id="borderPane">
-<!-- 	<top>
-		<MenuBar>
-			<menus>
-				<Menu text="File">
-					<items>
-						<MenuItem text="Open CSV" onAction="#openCsvFile" />
-						<SeparatorMenuItem  />
-						<MenuItem text="Exit" onAction="#closeInvestorReporting" />
-					</items>
-				</Menu>
-				<Menu text="Help">
-					<items>
-						<MenuItem text="About" onAction="#openAboutWindow" />
-					</items>
-				</Menu>
-			</menus>
-		</MenuBar>
-	</top>
-
-	<center>
-	
-	</center>
-	<left>
-		<TreeView fx:id="taskTreeView">
-		</TreeView>
-	</left> -->
+		    fx:controller="com.neumaics.simpleconsole.controllers.SimpleConsoleController">
 </BorderPane>
