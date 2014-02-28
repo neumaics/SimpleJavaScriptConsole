@@ -5,8 +5,15 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextArea?>
 
-<BorderPane prefHeight="768" 
-		    prefWidth="1024" xmlns:fx="http://javafx.com/fxml" 
+<BorderPane prefHeight="600" 
+		    prefWidth="800" xmlns:fx="http://javafx.com/fxml" 
 		    fx:controller="com.neumaics.simpleconsole.controllers.SimpleConsoleController">
+	<center>
+		<TextArea fx:id="workPad" />
+	</center>
+	<bottom>
+		<TextArea fx:id="outputPad" editable="false"/>
+	</bottom>
 </BorderPane>
