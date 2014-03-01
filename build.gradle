@@ -23,3 +23,11 @@ cssToBin {
 task wrapper(type: Wrapper) {
 	gradleVersion = '1.11'
 }
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'rhino:js:1.7R2'
+}
