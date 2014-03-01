@@ -16,6 +16,10 @@ javafx {
     arguments = ['-l', '--fast']
 }
 
+cssToBin {
+	enabled = false //Task seems to have trouble when writing files...
+}
+
 task wrapper(type: Wrapper) {
 	gradleVersion = '1.11'
 }
