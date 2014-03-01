@@ -22,7 +22,7 @@ public class SimpleConsole extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("SimpleConsoleDocument.fxml"));
         
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("SimpleConsoleStyleSheet.css" );
+        scene.getStylesheets().add("SimpleConsoleStyleSheet.css");
         
         stage.setScene(scene);
         stage.show();
