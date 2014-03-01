@@ -29,5 +29,5 @@ repositories {
 }
 
 dependencies {
-	compile 'rhino:js:1.7R2'
+	compile 'org.mozilla:rhino:1.7R4'
 }
