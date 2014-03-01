@@ -14,6 +14,13 @@
 		<TextArea fx:id="workPad" />
 	</center>
 	<bottom>
-		<TextArea fx:id="outputPad" editable="false"/>
+		<BorderPane>
+			<center>
+				<TextArea fx:id="outputPad" editable="false" />
+			</center>
+			<right>
+				<Button prefWidth="60" text="Run" onAction="#runScript" />
+			</right>
+		</BorderPane>
 	</bottom>
 </BorderPane>
