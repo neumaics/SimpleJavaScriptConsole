@@ -28,6 +28,8 @@ public class SimpleConsoleController implements Initializable {
 	
 	@FXML
 	private void runScript(ActionEvent event) {
+		Long start = System.nanoTime();
+		
 		try {
 			final Context jsContext = Context.enter();
 			final Scriptable jsScope = jsContext.initStandardObjects();
@@ -40,15 +42,11 @@ public class SimpleConsoleController implements Initializable {
 		} catch (Exception e) {
 			outputConsole.write(e.getMessage() + "\n");
 		} finally {
-			outputConsole.write("\n[Finished]\n");
+			Long end = System.nanoTime();
+			outputConsole.write("\n[Finished " + (((end - start) * 100)/10000000000.0) + "]\n");
 			Context.exit();
 		}
 	}
-	
-	public void write(String message) {
-		
-	}
-	
 	
 	public class ConsoleArea {
 		private final TextArea outputArea;
