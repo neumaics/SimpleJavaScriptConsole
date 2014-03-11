@@ -8,9 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
-import org.mozilla.javascript.Context;
-import org.mozilla.javascript.Scriptable;
-import org.mozilla.javascript.ScriptableObject;
 
 public class SimpleConsoleController implements Initializable {
 	
@@ -31,20 +28,12 @@ public class SimpleConsoleController implements Initializable {
 		Long start = System.nanoTime();
 		
 		try {
-			final Context jsContext = Context.enter();
-			final Scriptable jsScope = jsContext.initStandardObjects();
-			
-			ScriptableObject.putProperty(jsScope, "console", Context.javaToJS(outputConsole, jsScope));
-			
 			outputConsole.clear();
-			jsContext.evaluateString(jsScope, workPad.getText(), "<workPad>", 1, null);
-			
 		} catch (Exception e) {
 			outputConsole.write(e.getMessage() + "\n");
 		} finally {
 			Long end = System.nanoTime();
 			outputConsole.write("\n[Finished " + (((end - start) * 100)/10000000000.0) + "]\n");
-			Context.exit();
 		}
 	}
 	
