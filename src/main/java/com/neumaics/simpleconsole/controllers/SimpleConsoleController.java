@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
 
 public class SimpleConsoleController implements Initializable {
 	
@@ -17,11 +19,18 @@ public class SimpleConsoleController implements Initializable {
 	@FXML
 	private TextArea outputPad;
 	private ConsoleArea outputConsole;
+	private final ScriptEngineManager engineManager = new ScriptEngineManager();
+	private ScriptEngine engine;
 	
 	public void initialize(URL url, ResourceBundle rb) {
 		 outputConsole = new ConsoleArea(outputPad);
-		
+		 initializeScriptEngine();
     }
+	
+	private void initializeScriptEngine() {
+		engine = engineManager.getEngineByName("nashorn");  // TODO: consider making configurable.
+		engine.put("console", outputConsole);
+	}
 	
 	@FXML
 	private void runScript(ActionEvent event) {
@@ -29,6 +38,8 @@ public class SimpleConsoleController implements Initializable {
 		
 		try {
 			outputConsole.clear();
+			engine.eval(workPad.getText());
+			
 		} catch (Exception e) {
 			outputConsole.write(e.getMessage() + "\n");
 		} finally {
