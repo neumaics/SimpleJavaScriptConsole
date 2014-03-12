@@ -41,10 +41,10 @@ public class SimpleConsoleController implements Initializable {
 			engine.eval(workPad.getText());
 			
 		} catch (Exception e) {
-			outputConsole.write(e.getMessage() + "\n");
+			outputConsole.print(e.getMessage() + "\n");
 		} finally {
 			Long end = System.nanoTime();
-			outputConsole.write("\n[Finished " + (((end - start) * 100)/10000000000.0) + "]\n");
+			outputConsole.print("[Finished " + (((end - start) * 100)/10000000000.0) + "]\n");
 		}
 	}
 	
@@ -55,8 +55,12 @@ public class SimpleConsoleController implements Initializable {
 			this.outputArea = outputArea;
 		}
 		
-		public void write(String message) {
+		public void print(String message) {
 			outputArea.appendText(message);
+		}
+		
+		public void println(String message) {
+			print(message + "\n");
 		}
 		
 		public void clear() {
